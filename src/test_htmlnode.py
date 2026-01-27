@@ -1,5 +1,5 @@
 import unittest
-from htmlnode import HTMLNode
+from src.htmlnode import HTMLNode
 
 class TestHTMLNode(unittest.TestCase):
     def test_props_to_html(self):
@@ -33,3 +33,6 @@ class TestHTMLNode(unittest.TestCase):
         child_node = HTMLNode("span", "child")
         parent_node = HTMLNode("div", None, [child_node])
         self.assertEqual(parent_node.children, [child_node])
+
+if __name__ == "__main__":
+    unittest.main()

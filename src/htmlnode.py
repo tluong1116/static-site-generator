@@ -1,5 +1,5 @@
 class HTMLNode():
-    def __init__(self,tag=None, value=None, children=None, props=None):
+    def __init__(self,tag, value, children=None, props=None):
         self.tag = tag
         self.value = value
         self.children = children
@@ -15,9 +15,9 @@ class HTMLNode():
         return "".join([f' {key}="{value}"' for key, value in self.props.items()])
     
     def __repr__(self):
-        return f"""Tag: {self.tag}\n
-                Value: {self.value}\n
-                Children: {self.children}\n
-                Props: {self.props}"""
+        return (f"Tag: {self.tag}"
+                f"Value: {self.value}"
+                f"Children: {self.children}"
+                f"Props: {self.props}")
 
 
