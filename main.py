@@ -16,6 +16,6 @@ def main():
     
     print("Generating pages...")
     # This one line handles index.md, contact/index.md, and all blog posts!
-    generate_pages_recursive('content/', 'template.html', 'docs/')
+    generate_pages_recursive('content/', 'template.html', 'docs/', basepath)
 
 main()
