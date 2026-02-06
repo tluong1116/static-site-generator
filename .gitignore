@@ -20,3 +20,11 @@ Thumbs.db
 
 # testing
 /test*.py
+
+# public
+public/*
+static/*
+content/*
+
+# log
+build.log

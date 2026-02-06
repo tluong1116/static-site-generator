@@ -39,8 +39,8 @@ def markdown_to_html_node(markdown: str) -> ParentNode:
             # Preserve multi-line quote as newlines (or use ' ' if you prefer)
             content = "\n".join(lines).strip()
             # Typical markdown HTML: blockquote contains a paragraph
-            p_node = ParentNode("p", text_to_children(content))
-            block_nodes.append(ParentNode('blockquote', [p_node]))
+            #p_node = ParentNode("p", text_to_children(content))
+            block_nodes.append(ParentNode('blockquote', text_to_children(content)))
 
         elif block_type == BlockType.UNORDERED_LIST:
             lines = [re.sub(r'^[*-]\s', '', line) for line in block.split('\n')]
@@ -53,7 +53,9 @@ def markdown_to_html_node(markdown: str) -> ParentNode:
             block_nodes.append(ParentNode('ol',lines))
 
         elif block_type == BlockType.CODE:
-            code = block[4:-3]
+            #code = block[4:-3]
+            code = re.sub(r'^`{3}\n','', block)
+            code = re.sub(r'`{3}$','', code)
             code_node = text_node_to_html_node(TextNode(code,TextType.CODE))
             block_nodes.append(ParentNode('pre',[code_node]))
 
